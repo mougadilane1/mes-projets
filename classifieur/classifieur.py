@@ -30,7 +30,13 @@ def predire(phrase, modele):
             meilleur, meilleur_score = classe, score
     return meilleur
 
+
 if __name__ == "__main__":
     modele = entrainer(DONNEES)
-    for test in ["j'adore ce repas", "service horrible", "journée nul"]:
-        print(test, "->", predire(test, modele))
+    print('Classifieur de sentiments (tape "q" pour quitter)')
+    while True:
+        phrase = input("Tape une phrase : ")
+        if phrase == "q":
+            print("Au revoir !")
+            break
+        print("->", predire(phrase, modele))
